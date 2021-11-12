@@ -1,0 +1,31 @@
+﻿ <!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+        <h1 class="logo me-auto me-lg-0"><a href="@Url.Action("Index","Home")">Asli</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                <li><a class="@(ViewBag.Title=="Index"? "active" : "")"; href="@Url.Action("Index","Home")" >Anasayfa</a></li>
+                <li><a class="@(ViewBag.Title=="About"? "active" : "")"; href="@Url.Action("About","Home")">Hakkımda</a></li>
+                <li><a class="@(ViewBag.Title=="Resume"? "active" : "")"; href="@Url.Action("Resume","Home")">Özgeçmiş</a></li>
+                <li><a class="@(ViewBag.Title=="Services"? "active" : "")"; href="@Url.Action("Services","Home")">Hizmetler</a></li>
+                <li><a class="@(ViewBag.Title=="Portfolio"? "active" : "")"; href="@Url.Action("Portfolio","Home")">Portfolyo</a></li>
+                <li><a class="@(ViewBag.Title=="Blog"? "active" : "")"; href="@Url.Action("Blog","Home")">Blog</a></li>
+                <li><a class="@(ViewBag.Title=="Contact"? "active" : "")"; href="@Url.Action("Contact","Home")">İletişim</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+        <div class="header-social-links">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        </div>
+
+    </div>
+
+</header><!-- End Header -->

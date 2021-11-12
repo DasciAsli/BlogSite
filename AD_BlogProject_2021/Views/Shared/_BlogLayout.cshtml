@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  @Html.Partial("_BlogHead")
+</head>
+
+<body>
+  @Html.Partial("_BlogHeader")
+
+    <div class="main-wrapper">
+       @RenderBody()
+
+       @Html.Partial("_BlogFooter")
+    </div>
+   @Html.Partial("_BlogScripts")
+</body>
+</html>
+
