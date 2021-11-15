@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AD_BlogProject_2021.Models.EntityFramework.Portfolios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create",null,new { @class="btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjeCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="w-25">
+            <img src="@item.ImageUrl" width="25%" alt="Alternate Text" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjeCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegisterDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PortfolioId },new { @class="btn btn-success" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PortfolioId }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PortfolioId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

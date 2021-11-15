@@ -132,6 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\AboutsController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\HomesController.cs" />
+    <Compile Include="Areas\ManagementPanel\Controllers\PortfoliosController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\RolesController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\ServicesController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\UsersController.cs" />
@@ -4603,6 +4604,11 @@
     <Content Include="Areas\ManagementPanel\Views\Services\Details.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Services\Edit.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Services\Index.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Portfolios\Create.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Portfolios\Delete.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Portfolios\Details.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Portfolios\Edit.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Portfolios\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
