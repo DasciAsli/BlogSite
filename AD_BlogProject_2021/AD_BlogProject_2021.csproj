@@ -131,6 +131,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\AboutsController.cs" />
+    <Compile Include="Areas\ManagementPanel\Controllers\BlogsController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\HomesController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\PortfoliosController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\ResumesController.cs" />
@@ -4621,6 +4622,11 @@
     <Content Include="Areas\ManagementPanel\Views\Tags\Details.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Tags\Edit.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Tags\Index.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Blogs\Create.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Blogs\Delete.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Blogs\Details.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Blogs\Edit.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Blogs\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
