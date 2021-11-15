@@ -11,8 +11,7 @@ namespace AD_BlogProject_2021.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Users
     {
         public int UserId { get; set; }
@@ -20,7 +19,6 @@ namespace AD_BlogProject_2021.Models.EntityFramework
         public string Email { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
-        [DataType(DataType.DateTime)]
         public System.DateTime RegisterDate { get; set; }
         public int RolId { get; set; }
     

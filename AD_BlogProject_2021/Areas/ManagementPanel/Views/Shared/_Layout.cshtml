@@ -3,22 +3,27 @@
 
 <head>
    @Html.Partial("_Head")
+   <script src="~/Areas/ManagementPanel/Content/ckeditor/ckeditor.js"></script>
+
 </head>
 
 <body id="page-top">
     <!-- Page Wrapper -->
-    <div id="wrapper">
-        @Html.Partial("_Navbar")
+    <div id="wrapper">                 
+                @Html.Partial("_Navbar")
         <div id="content-wrapper" class="d-flex flex-column ">
-            <div id="content"class="m-5">
+            <div id="content" class="m-5">
                 @RenderBody()
             </div>
             @Html.Partial("_Footer")
         </div>
-
     </div>
-    
     @Html.Partial("_Scripts")
+
+    <script>
+        CKEDITOR.replace('editor1', { enterMode: CKEDITOR.ENTER_BR, entities: false, basicEntities: false });
+
+    </script>
 </body>
 
 </html>

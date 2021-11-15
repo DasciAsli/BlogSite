@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="125b902d986446a192c58bcb763bb710" Name="Diagram1">
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Abouts" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.BlogDetails" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.BlogDetails" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Blogs" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Comments" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Homes" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
