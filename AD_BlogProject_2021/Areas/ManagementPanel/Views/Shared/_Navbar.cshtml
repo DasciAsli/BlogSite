@@ -3,56 +3,56 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
 
-        <div class="sidebar-brand-text mx-3">SB Admin</div>
+        <div class="sidebar-brand-text mx-3">Admin Paneli</div>
     </a>
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href=@Url.Action("Index","Roles")>
-            <i class="fas fa-fw fa-table"></i>
-            <span>Rol Settings</span>
-        </a>
+    <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href=@Url.Action("Index","Users")>
-            <i class="fas fa-fw fa-table"></i>
-            <span>User Settings</span>
+            Kullanıcı Ayarları
         </a>
+        <div class="dropdown-menu  text-white border-0">
+            <a class="dropdown-item" href=@Url.Action("Index","Roles")
+               <i class="fas fa-fw fa-table"></i>Roller</a>
+            <a class="dropdown-item" href=@Url.Action("Index","Users")
+               <i class="fas fa-fw fa-table"></i>Users</a>
+
+        </div>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href=@Url.Action("Index","Homes")>
-            <i class="fas fa-fw fa-table"></i>
-            <span>Home Settings</span>
+    <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+
+            Website Ayarları
         </a>
+        <div class="dropdown-menu  text-white border-0">
+            <a class="dropdown-item" href=@Url.Action("Index","Homes")
+               <i class="fas fa-fw fa-table"></i>AnaSayfa</a>
+            <a class="dropdown-item" href=@Url.Action("Index","Abouts")
+               <i class="fas fa-fw fa-table"></i>Hakkımda</a>
+            <a class="dropdown-item" href=@Url.Action("Index","Resumes")
+               <i class="fas fa-fw fa-table"></i>Özgeçmiş</a>
+            <a class="dropdown-item" href=@Url.Action("Index","Services")
+               <i class="fas fa-fw fa-table"></i>Hizmetler</a>
+            <a class="dropdown-item" href=@Url.Action("Index","Portfolios")
+               <i class="fas fa-fw fa-table"></i>Portfolyo</a>
+
+        </div>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href=@Url.Action("Index","Abouts")>
-            <i class="fas fa-fw fa-table"></i>
-            <span>About Settings</span>
+    <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+
+            Blog Ayarları
         </a>
+        <div class="dropdown-menu  text-white border-0">
+            <a class="dropdown-item" href=@Url.Action("Index","Blogs")
+               <i class="fas fa-fw fa-table"></i>Bloglar</a>
+            <a class="dropdown-item" href=@Url.Action("Index","Tags")
+               <i class="fas fa-fw fa-table"></i>Etiketler</a>
+           
+
+        </div>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href=@Url.Action("Index","Services")>
-            <i class="fas fa-fw fa-table"></i>
-            <span>Service Settings</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href=@Url.Action("Index","Portfolios")>
-            <i class="fas fa-fw fa-table"></i>
-            <span>Portfolio Settings</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href=@Url.Action("Index","Tags")>
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tags Settings</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href=@Url.Action("Index","Blogs")>
-            <i class="fas fa-fw fa-table"></i>
-            <span>Blogs Settings</span>
-        </a>
-    </li>
+
+
+  
 </ul>
