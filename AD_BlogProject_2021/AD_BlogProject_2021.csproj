@@ -133,6 +133,7 @@
     <Compile Include="Areas\ManagementPanel\Controllers\AboutsController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\HomesController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\RolesController.cs" />
+    <Compile Include="Areas\ManagementPanel\Controllers\ServicesController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\UsersController.cs" />
     <Compile Include="Areas\ManagementPanel\Helpers\ImageUpload.cs" />
     <Compile Include="Areas\ManagementPanel\ManagementPanelAreaRegistration.cs" />
@@ -4597,6 +4598,11 @@
     <Content Include="Areas\ManagementPanel\Content\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Areas\ManagementPanel\Content\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Areas\ManagementPanel\Content\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="Areas\ManagementPanel\Views\Services\Create.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Services\Delete.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Services\Details.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Services\Edit.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Services\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
