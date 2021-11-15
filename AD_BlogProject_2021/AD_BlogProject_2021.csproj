@@ -133,6 +133,7 @@
     <Compile Include="Areas\ManagementPanel\Controllers\AboutsController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\HomesController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\PortfoliosController.cs" />
+    <Compile Include="Areas\ManagementPanel\Controllers\ResumesController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\RolesController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\ServicesController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\UsersController.cs" />
@@ -4609,6 +4610,11 @@
     <Content Include="Areas\ManagementPanel\Views\Portfolios\Details.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Portfolios\Edit.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Portfolios\Index.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Resumes\Create.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Resumes\Delete.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Resumes\Details.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Resumes\Edit.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Resumes\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -1,0 +1,67 @@
+﻿@model AD_BlogProject_2021.Models.EntityFramework.Resumes
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Resumes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumeTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumeTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumeSubTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumeSubTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumePlace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumePlace)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumeDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegisterDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ResumeId },new { @class="btn btn-warning" }) |
+    @Html.ActionLink("Back to List", "Index",null,new { @class="btn btn-secondary" })
+</p>

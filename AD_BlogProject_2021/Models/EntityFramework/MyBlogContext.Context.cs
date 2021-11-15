@@ -31,11 +31,11 @@ namespace AD_BlogProject_2021.Models.EntityFramework
         public virtual DbSet<Comments> Comments { get; set; }
         public virtual DbSet<Homes> Homes { get; set; }
         public virtual DbSet<Portfolios> Portfolios { get; set; }
-        public virtual DbSet<Resumes> Resumes { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Services> Services { get; set; }
         public virtual DbSet<Tags> Tags { get; set; }
         public virtual DbSet<UserDetails> UserDetails { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Resumes> Resumes { get; set; }
     }
 }

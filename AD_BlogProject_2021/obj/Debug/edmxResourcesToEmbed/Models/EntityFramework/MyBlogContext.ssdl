@@ -77,7 +77,7 @@
     <Property Name="ResumeTitle" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ResumeSubTitle" Type="varchar(max)" Nullable="false" />
     <Property Name="ResumePlace" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="ResumeDate" Type="date" Nullable="false" />
+    <Property Name="ResumeDate" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="RegisterDate" Type="smalldatetime" Nullable="false" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>

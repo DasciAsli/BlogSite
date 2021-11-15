@@ -18,7 +18,7 @@ namespace AD_BlogProject_2021.Models.EntityFramework
         public string ResumeTitle { get; set; }
         public string ResumeSubTitle { get; set; }
         public string ResumePlace { get; set; }
-        public System.DateTime ResumeDate { get; set; }
+        public string ResumeDate { get; set; }
         public System.DateTime RegisterDate { get; set; }
         public bool IsActive { get; set; }
     }

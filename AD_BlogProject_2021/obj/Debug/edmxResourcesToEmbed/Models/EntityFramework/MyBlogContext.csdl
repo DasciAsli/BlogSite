@@ -66,18 +66,6 @@
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
     <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
-  <EntityType Name="Resumes">
-    <Key>
-      <PropertyRef Name="ResumeId" />
-    </Key>
-    <Property Name="ResumeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ResumeTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ResumeSubTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ResumePlace" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ResumeDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="IsActive" Type="Boolean" Nullable="false" />
-  </EntityType>
   <EntityType Name="Roles">
     <Key>
       <PropertyRef Name="RolId" />
@@ -192,7 +180,6 @@
     <EntitySet Name="Comments" EntityType="Self.Comments" />
     <EntitySet Name="Homes" EntityType="Self.Homes" />
     <EntitySet Name="Portfolios" EntityType="Self.Portfolios" />
-    <EntitySet Name="Resumes" EntityType="Self.Resumes" />
     <EntitySet Name="Roles" EntityType="Self.Roles" />
     <EntitySet Name="Services" EntityType="Self.Services" />
     <EntitySet Name="Tags" EntityType="Self.Tags" />
@@ -218,5 +205,18 @@
       <End Role="Blogs" EntitySet="Blogs" />
       <End Role="Tags" EntitySet="Tags" />
     </AssociationSet>
+    <EntitySet Name="Resumes" EntityType="AD_BlogProje_2021_DbModel.Resumes" />
   </EntityContainer>
+  <EntityType Name="Resumes">
+    <Key>
+      <PropertyRef Name="ResumeId" />
+    </Key>
+    <Property Name="ResumeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResumeTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ResumeSubTitle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ResumePlace" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ResumeDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
 </Schema>

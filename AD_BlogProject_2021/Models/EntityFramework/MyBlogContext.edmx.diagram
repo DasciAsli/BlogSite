@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Comments" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Homes" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Portfolios" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Resumes" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Roles" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Services" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Tags" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
@@ -22,6 +21,7 @@
         <AssociationConnector Association="AD_BlogProje_2021_DbModel.FK_Users_Roles" ManuallyRouted="false" />
         <AssociationConnector Association="AD_BlogProje_2021_DbModel.FK_UserDetails_Users" ManuallyRouted="false" />
         <AssociationConnector Association="AD_BlogProje_2021_DbModel.BlogToTag" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Resumes" Width="1.5" PointX="8.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

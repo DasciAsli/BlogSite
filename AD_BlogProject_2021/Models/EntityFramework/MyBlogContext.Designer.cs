@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\hp\source\repos\AD_BlogProject_2021\AD_BlogProject_2021\Models\EntityFramework\MyBlogContext.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\hp\Desktop\Kendi Blog Projemde Kullandığım Araçlar\BlogSite\AD_BlogProject_2021\Models\EntityFramework\MyBlogContext.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

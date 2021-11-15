@@ -68,19 +68,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Resumes">
-      <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Resumes">
-        <MappingFragment StoreEntitySet="Resumes">
-          <ScalarProperty Name="ResumeId" ColumnName="ResumeId" />
-          <ScalarProperty Name="ResumeTitle" ColumnName="ResumeTitle" />
-          <ScalarProperty Name="ResumeSubTitle" ColumnName="ResumeSubTitle" />
-          <ScalarProperty Name="ResumePlace" ColumnName="ResumePlace" />
-          <ScalarProperty Name="ResumeDate" ColumnName="ResumeDate" />
-          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Roles">
       <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Roles">
         <MappingFragment StoreEntitySet="Roles">
@@ -144,5 +131,18 @@
         <ScalarProperty Name="TagId" ColumnName="TagId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Resumes">
+      <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Resumes">
+        <MappingFragment StoreEntitySet="Resumes">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="ResumeDate" ColumnName="ResumeDate" />
+          <ScalarProperty Name="ResumePlace" ColumnName="ResumePlace" />
+          <ScalarProperty Name="ResumeSubTitle" ColumnName="ResumeSubTitle" />
+          <ScalarProperty Name="ResumeTitle" ColumnName="ResumeTitle" />
+          <ScalarProperty Name="ResumeId" ColumnName="ResumeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

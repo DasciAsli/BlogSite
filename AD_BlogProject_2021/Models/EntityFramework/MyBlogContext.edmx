@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AD_BlogProje_2021_DbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AD_BlogProje_2021_DbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Abouts">
           <Key>
             <PropertyRef Name="AboutId" />
@@ -82,7 +82,7 @@
           <Property Name="ResumeTitle" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ResumeSubTitle" Type="varchar(max)" Nullable="false" />
           <Property Name="ResumePlace" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ResumeDate" Type="date" Nullable="false" />
+          <Property Name="ResumeDate" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="RegisterDate" Type="smalldatetime" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
@@ -247,8 +247,7 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AD_BlogProje_2021_DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -317,18 +316,6 @@
           <Property Name="ProjeCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
-        </EntityType>
-        <EntityType Name="Resumes">
-          <Key>
-            <PropertyRef Name="ResumeId" />
-          </Key>
-          <Property Name="ResumeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ResumeTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ResumeSubTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ResumePlace" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ResumeDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -444,7 +431,6 @@
           <EntitySet Name="Comments" EntityType="Self.Comments" />
           <EntitySet Name="Homes" EntityType="Self.Homes" />
           <EntitySet Name="Portfolios" EntityType="Self.Portfolios" />
-          <EntitySet Name="Resumes" EntityType="Self.Resumes" />
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="Services" EntityType="Self.Services" />
           <EntitySet Name="Tags" EntityType="Self.Tags" />
@@ -470,7 +456,20 @@
             <End Role="Blogs" EntitySet="Blogs" />
             <End Role="Tags" EntitySet="Tags" />
           </AssociationSet>
+          <EntitySet Name="Resumes" EntityType="AD_BlogProje_2021_DbModel.Resumes" />
         </EntityContainer>
+        <EntityType Name="Resumes">
+          <Key>
+            <PropertyRef Name="ResumeId" />
+          </Key>
+          <Property Name="ResumeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResumeTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ResumeSubTitle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ResumePlace" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ResumeDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -544,19 +543,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Resumes">
-            <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Resumes">
-              <MappingFragment StoreEntitySet="Resumes">
-                <ScalarProperty Name="ResumeId" ColumnName="ResumeId" />
-                <ScalarProperty Name="ResumeTitle" ColumnName="ResumeTitle" />
-                <ScalarProperty Name="ResumeSubTitle" ColumnName="ResumeSubTitle" />
-                <ScalarProperty Name="ResumePlace" ColumnName="ResumePlace" />
-                <ScalarProperty Name="ResumeDate" ColumnName="ResumeDate" />
-                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Roles">
             <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Roles">
               <MappingFragment StoreEntitySet="Roles">
@@ -620,6 +606,19 @@
               <ScalarProperty Name="TagId" ColumnName="TagId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Resumes">
+            <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Resumes">
+              <MappingFragment StoreEntitySet="Resumes">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="ResumeDate" ColumnName="ResumeDate" />
+                <ScalarProperty Name="ResumePlace" ColumnName="ResumePlace" />
+                <ScalarProperty Name="ResumeSubTitle" ColumnName="ResumeSubTitle" />
+                <ScalarProperty Name="ResumeTitle" ColumnName="ResumeTitle" />
+                <ScalarProperty Name="ResumeId" ColumnName="ResumeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
