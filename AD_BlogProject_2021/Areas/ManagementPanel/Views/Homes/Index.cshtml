@@ -32,14 +32,22 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td width="20%">
-            <img src="@item.ImageURL" width="25%" height="100%" alt="Alternate Text" />
+        <td width="15%">
+            <img src="@item.ImageURL" width="35%" height="100%" alt="Alternate Text" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Subtitle)
+            @if (item.Subtitle.Length > 22)
+            {
+                <p>@item.Subtitle.Substring(0,22).ToString() ..</p>
+            }
+            else
+            {
+                <p>@item.Subtitle</p>   
+            }
+           
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsActive)

@@ -7,8 +7,6 @@
     <Property Name="AboutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Description" Type="varchar(max)" Nullable="false" />
-    <Property Name="SkillName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="SkillRate" Type="smallint" Nullable="false" />
   </EntityType>
   <EntityType Name="BlogDetails">
     <Key>
@@ -97,6 +95,16 @@
     <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ServiceName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ServiceDescription" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="RegisterDate" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Skills">
+    <Key>
+      <PropertyRef Name="SkillId" />
+    </Key>
+    <Property Name="SkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SkillName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SkillRate" Type="tinyint" Nullable="false" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="RegisterDate" Type="smalldatetime" Nullable="false" />
   </EntityType>
@@ -214,6 +222,7 @@
     <EntitySet Name="Resumes" EntityType="Self.Resumes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Skills" EntityType="Self.Skills" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />

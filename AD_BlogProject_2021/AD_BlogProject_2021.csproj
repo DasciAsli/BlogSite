@@ -137,6 +137,7 @@
     <Compile Include="Areas\ManagementPanel\Controllers\ResumesController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\RolesController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\ServicesController.cs" />
+    <Compile Include="Areas\ManagementPanel\Controllers\SkillsController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\TagsController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\UsersController.cs" />
     <Compile Include="Areas\ManagementPanel\Helpers\ImageUpload.cs" />
@@ -188,6 +189,9 @@
     <Compile Include="Models\EntityFramework\Services.cs">
       <DependentUpon>MyBlogContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EntityFramework\Skills.cs">
+      <DependentUpon>MyBlogContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EntityFramework\Tags.cs">
       <DependentUpon>MyBlogContext.tt</DependentUpon>
     </Compile>
@@ -197,6 +201,7 @@
     <Compile Include="Models\EntityFramework\Users.cs">
       <DependentUpon>MyBlogContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\AboutViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -4627,6 +4632,11 @@
     <Content Include="Areas\ManagementPanel\Views\Blogs\Details.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Blogs\Edit.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Blogs\Index.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Skills\Create.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Skills\Delete.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Skills\Details.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Skills\Edit.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Skills\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

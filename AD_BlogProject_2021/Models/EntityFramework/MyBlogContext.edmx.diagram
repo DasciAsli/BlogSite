@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="125b902d986446a192c58bcb763bb710" Name="Diagram1">
-        <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Abouts" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.BlogDetails" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Blogs" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Comments" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
@@ -22,6 +21,8 @@
         <AssociationConnector Association="AD_BlogProje_2021_DbModel.FK_UserDetails_Users" ManuallyRouted="false" />
         <AssociationConnector Association="AD_BlogProje_2021_DbModel.BlogToTag" ManuallyRouted="false" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Resumes" Width="1.5" PointX="8.375" PointY="7.75" />
+        <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Abouts" Width="1.5" PointX="2.75" PointY="10.5" />
+        <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Skills" Width="1.5" PointX="10.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

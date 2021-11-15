@@ -33,7 +33,15 @@
             @Html.DisplayFor(modelItem => item.ServiceName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ServiceDescription)
+            @if (item.ServiceDescription.Length > 10)
+            {
+                <p>@item.ServiceDescription.Substring(0, 10) ..</p>
+            }
+            else
+            {
+                <p>@item.ServiceDescription</p>
+            }
+            
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsActive)

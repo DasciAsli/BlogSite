@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AD_BlogProject_2021.Models.EntityFramework;
+using AD_BlogProject_2021.Models.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,14 +10,19 @@ namespace AD_BlogProject_2021.Controllers
 {
     public class HomeController : Controller
     {
+        MyBlogContext db = new MyBlogContext();
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            var home = db.Homes.Where(h=>h.IsActive==true).ToList();
+            return View(home);
         }
         public ActionResult About()
         {
-            return View();
+            var model = new AboutViewModel();
+            model.Abouts = db.Abouts.ToList();
+            model.Skills = db.Skills.Where(s => s.IsActive == true).ToList();
+            return View(model);
         }
         public ActionResult Resume()
         {
@@ -23,11 +30,14 @@ namespace AD_BlogProject_2021.Controllers
         }
         public ActionResult Services()
         {
-            return View();
+            var service = db.Services.Where(s => s.IsActive == true).ToList();
+            return View(service);
         }
         public ActionResult Portfolio()
         {
-            return View();
+            
+            var tags= db.Tags.Where(t => t.IsActive == true).ToList();
+            return View(tags);
         }
         public ActionResult Blog()
         {

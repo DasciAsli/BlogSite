@@ -12,8 +12,6 @@
           <Property Name="AboutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
-          <Property Name="SkillName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="SkillRate" Type="smallint" Nullable="false" />
         </EntityType>
         <EntityType Name="BlogDetails">
           <Key>
@@ -102,6 +100,16 @@
           <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ServiceName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ServiceDescription" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RegisterDate" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Skills">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SkillRate" Type="tinyint" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="RegisterDate" Type="smalldatetime" Nullable="false" />
         </EntityType>
@@ -219,6 +227,7 @@
           <EntitySet Name="Resumes" EntityType="Self.Resumes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skills" EntityType="Self.Skills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -251,16 +260,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AD_BlogProje_2021_DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Abouts">
-          <Key>
-            <PropertyRef Name="AboutId" />
-          </Key>
-          <Property Name="AboutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SkillName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SkillRate" Type="Int16" Nullable="false" />
-        </EntityType>
         <EntityType Name="BlogDetails">
           <Key>
             <PropertyRef Name="BlogId" />
@@ -425,7 +424,6 @@
           <End Role="Tags" Type="Self.Tags" Multiplicity="*" />
         </Association>
         <EntityContainer Name="MyBlogContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Abouts" EntityType="Self.Abouts" />
           <EntitySet Name="BlogDetails" EntityType="Self.BlogDetails" />
           <EntitySet Name="Blogs" EntityType="Self.Blogs" />
           <EntitySet Name="Comments" EntityType="Self.Comments" />
@@ -457,6 +455,8 @@
             <End Role="Tags" EntitySet="Tags" />
           </AssociationSet>
           <EntitySet Name="Resumes" EntityType="AD_BlogProje_2021_DbModel.Resumes" />
+          <EntitySet Name="Abouts" EntityType="AD_BlogProje_2021_DbModel.Abouts" />
+          <EntitySet Name="Skills" EntityType="AD_BlogProje_2021_DbModel.Skills" />
         </EntityContainer>
         <EntityType Name="Resumes">
           <Key>
@@ -470,23 +470,30 @@
           <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityType Name="Abouts">
+          <Key>
+            <PropertyRef Name="AboutId" />
+          </Key>
+          <Property Name="AboutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Skills">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SkillRate" Type="Byte" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AD_BlogProje_2021_DbModelStoreContainer" CdmEntityContainer="MyBlogContext">
-          <EntitySetMapping Name="Abouts">
-            <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Abouts">
-              <MappingFragment StoreEntitySet="Abouts">
-                <ScalarProperty Name="AboutId" ColumnName="AboutId" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
-                <ScalarProperty Name="SkillRate" ColumnName="SkillRate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="BlogDetails">
             <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.BlogDetails">
               <MappingFragment StoreEntitySet="BlogDetails">
@@ -616,6 +623,26 @@
                 <ScalarProperty Name="ResumeSubTitle" ColumnName="ResumeSubTitle" />
                 <ScalarProperty Name="ResumeTitle" ColumnName="ResumeTitle" />
                 <ScalarProperty Name="ResumeId" ColumnName="ResumeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Abouts">
+            <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Abouts">
+              <MappingFragment StoreEntitySet="Abouts">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AboutId" ColumnName="AboutId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Skills">
+              <MappingFragment StoreEntitySet="Skills">
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SkillRate" ColumnName="SkillRate" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

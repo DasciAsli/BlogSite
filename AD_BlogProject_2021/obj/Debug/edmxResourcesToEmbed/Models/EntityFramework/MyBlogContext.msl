@@ -1,17 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="AD_BlogProje_2021_DbModelStoreContainer" CdmEntityContainer="MyBlogContext">
-    <EntitySetMapping Name="Abouts">
-      <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Abouts">
-        <MappingFragment StoreEntitySet="Abouts">
-          <ScalarProperty Name="AboutId" ColumnName="AboutId" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="SkillName" ColumnName="SkillName" />
-          <ScalarProperty Name="SkillRate" ColumnName="SkillRate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="BlogDetails">
       <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.BlogDetails">
         <MappingFragment StoreEntitySet="BlogDetails">
@@ -141,6 +130,26 @@
           <ScalarProperty Name="ResumeSubTitle" ColumnName="ResumeSubTitle" />
           <ScalarProperty Name="ResumeTitle" ColumnName="ResumeTitle" />
           <ScalarProperty Name="ResumeId" ColumnName="ResumeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Abouts">
+      <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Abouts">
+        <MappingFragment StoreEntitySet="Abouts">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="AboutId" ColumnName="AboutId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skills">
+      <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Skills">
+        <MappingFragment StoreEntitySet="Skills">
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SkillRate" ColumnName="SkillRate" />
+          <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+          <ScalarProperty Name="SkillId" ColumnName="SkillId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

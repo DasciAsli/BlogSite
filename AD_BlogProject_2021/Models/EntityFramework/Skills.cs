@@ -12,10 +12,12 @@ namespace AD_BlogProject_2021.Models.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class Abouts
+    public partial class Skills
     {
-        public int AboutId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public int SkillId { get; set; }
+        public string SkillName { get; set; }
+        public byte SkillRate { get; set; }
+        public bool IsActive { get; set; }
+        public System.DateTime RegisterDate { get; set; }
     }
 }

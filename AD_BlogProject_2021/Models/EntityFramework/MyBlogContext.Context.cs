@@ -25,7 +25,6 @@ namespace AD_BlogProject_2021.Models.EntityFramework
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Abouts> Abouts { get; set; }
         public virtual DbSet<BlogDetails> BlogDetails { get; set; }
         public virtual DbSet<Blogs> Blogs { get; set; }
         public virtual DbSet<Comments> Comments { get; set; }
@@ -37,5 +36,7 @@ namespace AD_BlogProject_2021.Models.EntityFramework
         public virtual DbSet<UserDetails> UserDetails { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Resumes> Resumes { get; set; }
+        public virtual DbSet<Abouts> Abouts { get; set; }
+        public virtual DbSet<Skills> Skills { get; set; }
     }
 }

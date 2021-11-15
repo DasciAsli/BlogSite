@@ -1,4 +1,4 @@
-﻿
+﻿@model List<AD_BlogProject_2021.Models.EntityFramework.Homes>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,8 +7,13 @@
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
     <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
-        <h1>Asli Daşcı</h1>
-        <h2>I'm a professional illustrator from San Francisco</h2>
+        @foreach (var item in Model)
+        {
+            <h1>@item.Title</h1>
+            <h2>@item.Subtitle</h2>
+
+        }
+
         <a href="@Url.Action("About","Home")" class="btn-about">Hakkımda</a>
     </div>
 </section><!-- End Hero -->
