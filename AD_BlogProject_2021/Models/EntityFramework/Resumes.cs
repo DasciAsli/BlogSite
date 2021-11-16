@@ -11,11 +11,14 @@ namespace AD_BlogProject_2021.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class Resumes
     {
         public int ResumeId { get; set; }
         public string ResumeTitle { get; set; }
+
+        [AllowHtml]
         public string ResumeSubTitle { get; set; }
         public string ResumePlace { get; set; }
         public string ResumeDate { get; set; }

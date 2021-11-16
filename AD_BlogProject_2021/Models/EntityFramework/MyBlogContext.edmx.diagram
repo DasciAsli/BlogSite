@@ -20,9 +20,9 @@
         <AssociationConnector Association="AD_BlogProje_2021_DbModel.FK_Users_Roles" ManuallyRouted="false" />
         <AssociationConnector Association="AD_BlogProje_2021_DbModel.FK_UserDetails_Users" ManuallyRouted="false" />
         <AssociationConnector Association="AD_BlogProje_2021_DbModel.BlogToTag" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Resumes" Width="1.5" PointX="8.375" PointY="7.75" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Abouts" Width="1.5" PointX="2.75" PointY="10.5" />
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Skills" Width="1.5" PointX="10.375" PointY="4.75" />
+        <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Resumes" Width="1.5" PointX="8.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -24,9 +24,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ResumeDate)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RegisterDate)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.IsActive)
         </th>
@@ -39,7 +37,15 @@
             @Html.DisplayFor(modelItem => item.ResumeTitle)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ResumeSubTitle)
+            @if (item.ResumeSubTitle.Length > 15)
+            {
+                <p> @item.ResumeSubTitle.Substring(0, 15) ...</p>
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => item.ResumeSubTitle)
+            }
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ResumePlace)
@@ -47,9 +53,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.ResumeDate)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegisterDate)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>

@@ -26,7 +26,8 @@ namespace AD_BlogProject_2021.Controllers
         }
         public ActionResult Resume()
         {
-            return View();
+            var resume = db.Resumes.Where(r => r.IsActive == true).OrderByDescending(r =>r.ResumeId);
+            return View(resume.ToList());
         }
         public ActionResult Services()
         {

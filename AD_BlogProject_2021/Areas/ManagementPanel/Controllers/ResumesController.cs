@@ -46,6 +46,7 @@ namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "ResumeId,ResumeTitle,ResumeSubTitle,ResumePlace,ResumeDate,RegisterDate,IsActive")] Resumes resumes)
         {
             if (ModelState.IsValid)
@@ -79,6 +80,7 @@ namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "ResumeId,ResumeTitle,ResumeSubTitle,ResumePlace,ResumeDate,RegisterDate,IsActive")] Resumes resumes)
         {
             if (ModelState.IsValid)
@@ -88,6 +90,7 @@ namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
                 update.ResumeSubTitle = resumes.ResumeSubTitle;
                 update.ResumePlace = resumes.ResumePlace;
                 update.ResumeDate = resumes.ResumeDate;
+                update.IsActive = resumes.IsActive;
                 update.RegisterDate = DateTime.Now;               
                 db.SaveChanges();
                 return RedirectToAction("Index");
