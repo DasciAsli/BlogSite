@@ -34,10 +34,26 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @if (item.Title.Length > 5)
+            {
+                <p>@item.Title.Substring(0, 5) ..</p>
+            }
+            else
+            {
+                <p>@item.Title</p>
+            }
+
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SubTitle)
+            @if (item.SubTitle.Length > 10)
+            {
+                <p>@item.SubTitle.Substring(0, 10) ..</p>
+            }
+            else
+            {
+                <p>@item.Title</p>
+            }
+
         </td>
         <td class="w-25">
             <img src="@item.ImageURL" width="30%"  alt="Alternate Text" />

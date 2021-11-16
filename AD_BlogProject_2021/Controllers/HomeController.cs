@@ -42,7 +42,8 @@ namespace AD_BlogProject_2021.Controllers
         }
         public ActionResult Blog()
         {
-            return View();
+            var blog = db.Blogs.Where(b => b.IsActive == true).OrderByDescending(b => b.BlogId).Take(3).ToList();
+            return View(blog);
         }
         public ActionResult Contact()
         {

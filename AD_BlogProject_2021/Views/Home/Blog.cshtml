@@ -1,4 +1,4 @@
-﻿
+﻿@model List<AD_BlogProject_2021.Models.EntityFramework.Blogs>
 @{
     ViewBag.Title = "Blog";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,71 +14,46 @@
 
 
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <div class="col-4 mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Fancy Product</h5>
+                
+                @foreach (var item in Model)
+                {
 
-                                <p>Start Bootstrap creates free, open source ..</p>
+                    
+                    <div class="col-4 mb-5">
+                        <div class="card h-100 rounded-lg">
+                            <!-- Product image-->
+                            <img class="card-img-top rounded-lg" src="@item.ImageURL" width="350px;"  height="100px;"  alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">@item.Title</h5>
+
+                                    <p>@item.SubTitle</p>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-blog mt-auto" href="#">Read More..</a></div>
                             </div>
                         </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-blog mt-auto" href="#">Read More..</a></div>
-                        </div>
                     </div>
-                </div>
-                <div class="col-4 mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Fancy Product</h5>
-                                <p>Start Bootstrap creates free, open source ..</p>
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn  btn-blog mt-auto" href="#">Read More..</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Fancy Product</h5>
-                                <p>Start Bootstrap creates free, open source ..</p>
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn  mt-auto btn-blog" href="#">Read More..</a></div>
-                        </div>
-                    </div>
-                </div>
+
+                }
+
+
+
+
             </div>
             <div class="d-grid gap-3">
-                @Html.ActionLink("Bloga git","Index","Blog1",null, new { @class = "btn btn-blog" })
-               
+                @Html.ActionLink("Bloga git", "Index", "Blog1", null, new { @class = "btn btn-blog" })
+
             </div>
-           
+
 
 
         </div>
-       
+
     </section><!-- End Contact Section -->
 
 </main><!-- End #main -->
