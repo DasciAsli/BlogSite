@@ -5,15 +5,17 @@
 }
 
 <!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center">
-    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
-        @foreach (var item in Model)
-        {
+@foreach (var item in Model)
+{
+    <section id="hero" class="d-flex align-items-center " style="background-image:url(@item.ImageURL); background-position:bottom,right; background-size:contain">
+        <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+
             <h1>@item.Title</h1>
             <h2>@item.Subtitle</h2>
 
-        }
+            
 
-        <a href="@Url.Action("About","Home")" class="btn-about">Hakkımda</a>
-    </div>
-</section><!-- End Hero -->
+            <a href="@Url.Action("About", "Home")" class="btn-about">Hakkımda</a>
+        </div>
+    </section><!-- End Hero -->
+}
