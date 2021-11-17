@@ -36,9 +36,10 @@ namespace AD_BlogProject_2021.Controllers
         }
         public ActionResult Portfolio()
         {
-            
-            var tags= db.Tags.Where(t => t.IsActive == true).ToList();
-            return View(tags);
+
+            var portfolio = db.Portfolios.Where(p => p.IsActive == true).ToList();
+            ViewBag.TagId = db.Tags.ToList();
+            return View(portfolio);
         }
         public ActionResult Blog()
         {
