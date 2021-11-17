@@ -18,9 +18,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ProjeName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjeCategory)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.IsActive)
         </th>
@@ -32,15 +30,13 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td class="w-25">
-            <img src="@item.ImageUrl" width="25%" alt="Alternate Text" />
+        <td width="20%">
+            <img src="@item.ImageUrl" width="30%" alt="Alternate Text" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProjeName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProjeCategory)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>

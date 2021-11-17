@@ -16,7 +16,7 @@
         </dt>
 
         <dd>
-            <img src="@Model.ImageUrl" width="20%" alt="Alternate Text" />
+            <img src="@Model.ImageUrl" alt="Alternate Text" />
         </dd>
 
         <dt>
@@ -28,11 +28,24 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ProjeCategory)
+            @Html.DisplayNameFor(model => model.ProjeUrl)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ProjeCategory)
+            @Html.DisplayFor(model => model.ProjeUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tags)
+        </dt>
+
+        <dd>
+            @if (Model.Tags.Count > 0)
+            {
+                foreach (var item in Model.Tags)
+                {
+                    <span>@item.TagName,</span>
+                }
+            }
         </dd>
 
         <dt>
@@ -54,6 +67,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PortfolioId },new { @class="btn btn-warning" }) |
-    @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-secondary" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PortfolioId },new { @class="btn btn-success" }) |
+    @Html.ActionLink("Back to List", "Index",null,new { @class="btn btn-secondary" })
 </p>

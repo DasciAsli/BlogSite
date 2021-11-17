@@ -45,18 +45,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Portfolios">
-      <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Portfolios">
-        <MappingFragment StoreEntitySet="Portfolios">
-          <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
-          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
-          <ScalarProperty Name="ProjeName" ColumnName="ProjeName" />
-          <ScalarProperty Name="ProjeCategory" ColumnName="ProjeCategory" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Roles">
       <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Roles">
         <MappingFragment StoreEntitySet="Roles">
@@ -73,16 +61,6 @@
           <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
           <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
           <ScalarProperty Name="ServiceDescription" ColumnName="ServiceDescription" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Tags">
-      <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Tags">
-        <MappingFragment StoreEntitySet="Tags">
-          <ScalarProperty Name="TagId" ColumnName="TagId" />
-          <ScalarProperty Name="TagName" ColumnName="TagName" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
         </MappingFragment>
@@ -112,14 +90,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="BlogToTag" TypeName="AD_BlogProje_2021_DbModel.BlogToTag" StoreEntitySet="BlogToTag">
-      <EndProperty Name="Blogs">
-        <ScalarProperty Name="BlogId" ColumnName="BlogId" />
-      </EndProperty>
-      <EndProperty Name="Tags">
-        <ScalarProperty Name="TagId" ColumnName="TagId" />
-      </EndProperty>
-    </AssociationSetMapping>
     <EntitySetMapping Name="Abouts">
       <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Abouts">
         <MappingFragment StoreEntitySet="Abouts">
@@ -153,5 +123,43 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Portfolios">
+      <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Portfolios">
+        <MappingFragment StoreEntitySet="Portfolios">
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ProjeUrl" ColumnName="ProjeUrl" />
+          <ScalarProperty Name="ProjeName" ColumnName="ProjeName" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Tags">
+        <MappingFragment StoreEntitySet="Tags">
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="TagId" ColumnName="TagId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BlogToTag" TypeName="AD_BlogProje_2021_DbModel.BlogToTag" StoreEntitySet="BlogToTag">
+      <EndProperty Name="Tags">
+        <ScalarProperty Name="TagId" ColumnName="TagId" />
+      </EndProperty>
+      <EndProperty Name="Blogs">
+        <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PortfolioToTag" TypeName="AD_BlogProje_2021_DbModel.PortfolioToTag" StoreEntitySet="PortfolioToTag">
+      <EndProperty Name="Tags">
+        <ScalarProperty Name="TagId" ColumnName="TagId" />
+      </EndProperty>
+      <EndProperty Name="Portfolios">
+        <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

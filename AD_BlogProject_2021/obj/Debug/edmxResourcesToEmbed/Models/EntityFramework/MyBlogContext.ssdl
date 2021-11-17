@@ -63,9 +63,17 @@
     <Property Name="PortfolioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ImageUrl" Type="varchar(max)" Nullable="false" />
     <Property Name="ProjeName" Type="varchar" MaxLength="80" Nullable="false" />
-    <Property Name="ProjeCategory" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProjeUrl" Type="varchar(max)" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="RegisterDate" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PortfolioToTag">
+    <Key>
+      <PropertyRef Name="PortfolioId" />
+      <PropertyRef Name="TagId" />
+    </Key>
+    <Property Name="PortfolioId" Type="int" Nullable="false" />
+    <Property Name="TagId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Resumes">
     <Key>
@@ -187,6 +195,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PortfolioToTag_Portfolios">
+    <End Role="Portfolios" Type="Self.Portfolios" Multiplicity="1" />
+    <End Role="PortfolioToTag" Type="Self.PortfolioToTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Portfolios">
+        <PropertyRef Name="PortfolioId" />
+      </Principal>
+      <Dependent Role="PortfolioToTag">
+        <PropertyRef Name="PortfolioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PortfolioToTag_Tags">
+    <End Role="Tags" Type="Self.Tags" Multiplicity="1" />
+    <End Role="PortfolioToTag" Type="Self.PortfolioToTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tags">
+        <PropertyRef Name="TagId" />
+      </Principal>
+      <Dependent Role="PortfolioToTag">
+        <PropertyRef Name="TagId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserDetails_Users">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="0..1" />
@@ -219,6 +251,7 @@
     <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Homes" EntityType="Self.Homes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Portfolios" EntityType="Self.Portfolios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PortfolioToTag" EntityType="Self.PortfolioToTag" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Resumes" EntityType="Self.Resumes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
@@ -241,6 +274,14 @@
     <AssociationSet Name="FK_Comments_Blogs" Association="Self.FK_Comments_Blogs">
       <End Role="Blogs" EntitySet="Blogs" />
       <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PortfolioToTag_Portfolios" Association="Self.FK_PortfolioToTag_Portfolios">
+      <End Role="Portfolios" EntitySet="Portfolios" />
+      <End Role="PortfolioToTag" EntitySet="PortfolioToTag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PortfolioToTag_Tags" Association="Self.FK_PortfolioToTag_Tags">
+      <End Role="Tags" EntitySet="Tags" />
+      <End Role="PortfolioToTag" EntitySet="PortfolioToTag" />
     </AssociationSet>
     <AssociationSet Name="FK_UserDetails_Users" Association="Self.FK_UserDetails_Users">
       <End Role="Users" EntitySet="Users" />

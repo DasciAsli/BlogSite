@@ -18,6 +18,7 @@ namespace AD_BlogProject_2021.Models.EntityFramework
         public Tags()
         {
             this.Blogs = new HashSet<Blogs>();
+            this.Portfolios = new HashSet<Portfolios>();
         }
     
         public int TagId { get; set; }
@@ -27,5 +28,7 @@ namespace AD_BlogProject_2021.Models.EntityFramework
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Blogs> Blogs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Portfolios> Portfolios { get; set; }
     }
 }

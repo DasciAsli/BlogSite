@@ -68,9 +68,17 @@
           <Property Name="PortfolioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ImageUrl" Type="varchar(max)" Nullable="false" />
           <Property Name="ProjeName" Type="varchar" MaxLength="80" Nullable="false" />
-          <Property Name="ProjeCategory" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProjeUrl" Type="varchar(max)" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="RegisterDate" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PortfolioToTag">
+          <Key>
+            <PropertyRef Name="PortfolioId" />
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="PortfolioId" Type="int" Nullable="false" />
+          <Property Name="TagId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Resumes">
           <Key>
@@ -192,6 +200,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PortfolioToTag_Portfolios">
+          <End Role="Portfolios" Type="Self.Portfolios" Multiplicity="1" />
+          <End Role="PortfolioToTag" Type="Self.PortfolioToTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolios">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="PortfolioToTag">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioToTag_Tags">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="1" />
+          <End Role="PortfolioToTag" Type="Self.PortfolioToTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="TagId" />
+            </Principal>
+            <Dependent Role="PortfolioToTag">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserDetails_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="0..1" />
@@ -224,6 +256,7 @@
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Homes" EntityType="Self.Homes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Portfolios" EntityType="Self.Portfolios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PortfolioToTag" EntityType="Self.PortfolioToTag" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Resumes" EntityType="Self.Resumes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
@@ -246,6 +279,14 @@
           <AssociationSet Name="FK_Comments_Blogs" Association="Self.FK_Comments_Blogs">
             <End Role="Blogs" EntitySet="Blogs" />
             <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioToTag_Portfolios" Association="Self.FK_PortfolioToTag_Portfolios">
+            <End Role="Portfolios" EntitySet="Portfolios" />
+            <End Role="PortfolioToTag" EntitySet="PortfolioToTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioToTag_Tags" Association="Self.FK_PortfolioToTag_Tags">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="PortfolioToTag" EntitySet="PortfolioToTag" />
           </AssociationSet>
           <AssociationSet Name="FK_UserDetails_Users" Association="Self.FK_UserDetails_Users">
             <End Role="Users" EntitySet="Users" />
@@ -280,7 +321,7 @@
           <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="BlogDetails" Relationship="Self.FK_BlogDetails_Blogs" FromRole="Blogs" ToRole="BlogDetails" />
           <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_Blogs" FromRole="Blogs" ToRole="Comments" />
-          <NavigationProperty Name="Tags" Relationship="Self.BlogToTag" FromRole="Blogs" ToRole="Tags" />
+          <NavigationProperty Name="Tags" Relationship="AD_BlogProje_2021_DbModel.BlogToTag" FromRole="Blogs" ToRole="Tags" />
         </EntityType>
         <EntityType Name="Comments">
           <Key>
@@ -305,17 +346,6 @@
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
-        <EntityType Name="Portfolios">
-          <Key>
-            <PropertyRef Name="PortfolioId" />
-          </Key>
-          <Property Name="PortfolioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ProjeName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ProjeCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
-        </EntityType>
         <EntityType Name="Roles">
           <Key>
             <PropertyRef Name="RolId" />
@@ -335,16 +365,6 @@
           <Property Name="ServiceDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
-        </EntityType>
-        <EntityType Name="Tags">
-          <Key>
-            <PropertyRef Name="TagId" />
-          </Key>
-          <Property Name="TagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TagName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Blogs" Relationship="Self.BlogToTag" FromRole="Tags" ToRole="Blogs" />
         </EntityType>
         <EntityType Name="UserDetails">
           <Key>
@@ -419,19 +439,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="BlogToTag">
-          <End Role="Blogs" Type="Self.Blogs" Multiplicity="*" />
-          <End Role="Tags" Type="Self.Tags" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="MyBlogContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BlogDetails" EntityType="Self.BlogDetails" />
           <EntitySet Name="Blogs" EntityType="Self.Blogs" />
           <EntitySet Name="Comments" EntityType="Self.Comments" />
           <EntitySet Name="Homes" EntityType="Self.Homes" />
-          <EntitySet Name="Portfolios" EntityType="Self.Portfolios" />
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="Services" EntityType="Self.Services" />
-          <EntitySet Name="Tags" EntityType="Self.Tags" />
           <EntitySet Name="UserDetails" EntityType="Self.UserDetails" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <AssociationSet Name="FK_BlogDetails_Blogs" Association="Self.FK_BlogDetails_Blogs">
@@ -450,13 +464,19 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="UserDetails" EntitySet="UserDetails" />
           </AssociationSet>
-          <AssociationSet Name="BlogToTag" Association="Self.BlogToTag">
-            <End Role="Blogs" EntitySet="Blogs" />
-            <End Role="Tags" EntitySet="Tags" />
-          </AssociationSet>
           <EntitySet Name="Abouts" EntityType="AD_BlogProje_2021_DbModel.Abouts" />
           <EntitySet Name="Skills" EntityType="AD_BlogProje_2021_DbModel.Skills" />
           <EntitySet Name="Resumes" EntityType="AD_BlogProje_2021_DbModel.Resumes" />
+          <EntitySet Name="Portfolios" EntityType="AD_BlogProje_2021_DbModel.Portfolios" />
+          <EntitySet Name="Tags" EntityType="AD_BlogProje_2021_DbModel.Tags" />
+          <AssociationSet Name="BlogToTag" Association="AD_BlogProje_2021_DbModel.BlogToTag">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="Tags" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="PortfolioToTag" Association="AD_BlogProje_2021_DbModel.PortfolioToTag">
+            <End Role="Portfolios" EntitySet="Portfolios" />
+            <End Role="Tags" EntitySet="Tags" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Abouts">
           <Key>
@@ -488,6 +508,37 @@
           <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityType Name="Portfolios">
+          <Key>
+            <PropertyRef Name="PortfolioId" />
+          </Key>
+          <Property Name="PortfolioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProjeName" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="ProjeUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Tags" Relationship="AD_BlogProje_2021_DbModel.PortfolioToTag" FromRole="Portfolios" ToRole="Tags" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TagName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Blogs" Relationship="AD_BlogProje_2021_DbModel.BlogToTag" FromRole="Tags" ToRole="Blogs" />
+          <NavigationProperty Name="Portfolios" Relationship="AD_BlogProje_2021_DbModel.PortfolioToTag" FromRole="Tags" ToRole="Portfolios" />
+        </EntityType>
+        <Association Name="BlogToTag">
+          <End Type="AD_BlogProje_2021_DbModel.Blogs" Role="Blogs" Multiplicity="*" />
+          <End Type="AD_BlogProje_2021_DbModel.Tags" Role="Tags" Multiplicity="*" />
+        </Association>
+        <Association Name="PortfolioToTag">
+          <End Type="AD_BlogProje_2021_DbModel.Portfolios" Role="Portfolios" Multiplicity="*" />
+          <End Type="AD_BlogProje_2021_DbModel.Tags" Role="Tags" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -538,18 +589,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Portfolios">
-            <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Portfolios">
-              <MappingFragment StoreEntitySet="Portfolios">
-                <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
-                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
-                <ScalarProperty Name="ProjeName" ColumnName="ProjeName" />
-                <ScalarProperty Name="ProjeCategory" ColumnName="ProjeCategory" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Roles">
             <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Roles">
               <MappingFragment StoreEntitySet="Roles">
@@ -566,16 +605,6 @@
                 <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
                 <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
                 <ScalarProperty Name="ServiceDescription" ColumnName="ServiceDescription" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tags">
-            <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Tags">
-              <MappingFragment StoreEntitySet="Tags">
-                <ScalarProperty Name="TagId" ColumnName="TagId" />
-                <ScalarProperty Name="TagName" ColumnName="TagName" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
               </MappingFragment>
@@ -605,14 +634,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="BlogToTag" TypeName="AD_BlogProje_2021_DbModel.BlogToTag" StoreEntitySet="BlogToTag">
-            <EndProperty Name="Blogs">
-              <ScalarProperty Name="BlogId" ColumnName="BlogId" />
-            </EndProperty>
-            <EndProperty Name="Tags">
-              <ScalarProperty Name="TagId" ColumnName="TagId" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="Abouts">
             <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Abouts">
               <MappingFragment StoreEntitySet="Abouts">
@@ -646,7 +667,45 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="Portfolios">
+            <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Portfolios">
+              <MappingFragment StoreEntitySet="Portfolios">
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ProjeUrl" ColumnName="ProjeUrl" />
+                <ScalarProperty Name="ProjeName" ColumnName="ProjeName" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Tags">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TagName" ColumnName="TagName" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="BlogToTag" TypeName="AD_BlogProje_2021_DbModel.BlogToTag" StoreEntitySet="BlogToTag">
+            <EndProperty Name="Tags">
+              <ScalarProperty Name="TagId" ColumnName="TagId" />
+            </EndProperty>
+            <EndProperty Name="Blogs">
+              <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="PortfolioToTag" TypeName="AD_BlogProje_2021_DbModel.PortfolioToTag" StoreEntitySet="PortfolioToTag">
+            <EndProperty Name="Tags">
+              <ScalarProperty Name="TagId" ColumnName="TagId" />
+            </EndProperty>
+            <EndProperty Name="Portfolios">
+              <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

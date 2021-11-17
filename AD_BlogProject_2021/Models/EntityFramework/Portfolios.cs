@@ -14,11 +14,20 @@ namespace AD_BlogProject_2021.Models.EntityFramework
     
     public partial class Portfolios
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Portfolios()
+        {
+            this.Tags = new HashSet<Tags>();
+        }
+    
         public int PortfolioId { get; set; }
         public string ImageUrl { get; set; }
         public string ProjeName { get; set; }
-        public string ProjeCategory { get; set; }
+        public string ProjeUrl { get; set; }
         public bool IsActive { get; set; }
         public System.DateTime RegisterDate { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tags> Tags { get; set; }
     }
 }

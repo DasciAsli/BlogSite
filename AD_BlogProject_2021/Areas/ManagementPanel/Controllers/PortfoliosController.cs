@@ -39,6 +39,7 @@ namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
         // GET: ManagementPanel/Portfolios/Create
         public ActionResult Create()
         {
+            ViewBag.TagId = db.Tags.ToList();
             return View();
         }
 
@@ -47,13 +48,21 @@ namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PortfolioId,ImageUrl,ProjeName,ProjeCategory,IsActive,RegisterDate")] Portfolios portfolios,HttpPostedFileBase imgFile)
+        [ValidateInput(false)]
+        public ActionResult Create([Bind(Include = "PortfolioId,ImageUrl,ProjeName,ProjeUrl,IsActive,RegisterDate")] Portfolios portfolios,HttpPostedFileBase imgFile,List<int> TagId)
         {
             if (ModelState.IsValid)
             {
-                if (imgFile!=null)
+                if (TagId.Count > 0)
                 {
-                    portfolios.ImageUrl = ImageUpload.SaveImage(imgFile,516,345);
+                    foreach (var item in TagId)
+                    {
+                        portfolios.Tags.Add(db.Tags.Find(item));
+                    }
+                }
+                if (imgFile != null)
+                {
+                    portfolios.ImageUrl = ImageUpload.SaveImage(imgFile, 295, 198);
                 }
                 portfolios.RegisterDate = DateTime.Now;
                 db.Portfolios.Add(portfolios);
@@ -76,6 +85,7 @@ namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.TagId = new SelectList(db.Tags, "TagId", "TagName");
             return View(portfolios);
         }
 
@@ -84,18 +94,27 @@ namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PortfolioId,ImageUrl,ProjeName,ProjeCategory,IsActive,RegisterDate")] Portfolios portfolios,HttpPostedFileBase imgFile)
+        [ValidateInput(false)]
+        public ActionResult Edit([Bind(Include = "PortfolioId,ImageUrl,ProjeName,ProjeUrl,IsActive,RegisterDate")] Portfolios portfolios,HttpPostedFileBase imgFile,List<int> TagId)
         {
             if (ModelState.IsValid)
             {
                 Portfolios update = db.Portfolios.Find(portfolios.PortfolioId);
-                if (imgFile!=null)
+                if (TagId.Count() >0)
+                {
+                    update.Tags.Clear();
+                    foreach (var item in TagId)
+                    {
+                        update.Tags.Add(db.Tags.Find(item));
+                    }
+                }
+                if (imgFile != null)
                 {
                     ImageUpload.DeleteByPath(update.ImageUrl);
-                    update.ImageUrl = ImageUpload.SaveImage(imgFile, 516, 345);
+                    update.ImageUrl = ImageUpload.SaveImage(imgFile, 295, 198);
                 }
                 update.ProjeName = portfolios.ProjeName;
-                update.ProjeCategory = portfolios.ProjeCategory;
+                update.ProjeUrl = portfolios.ProjeUrl;
                 update.IsActive = portfolios.IsActive;
                 update.RegisterDate = DateTime.Now;
                 
@@ -126,6 +145,7 @@ namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Portfolios portfolios = db.Portfolios.Find(id);
+            portfolios.Tags.Clear();
             ImageUpload.DeleteByPath(portfolios.ImageUrl);
             db.Portfolios.Remove(portfolios);
             db.SaveChanges();
