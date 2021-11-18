@@ -5,12 +5,14 @@
 </head>
 
 <body>
-  @Html.Partial("_BlogHeader")
+      @Html.Partial("_BlogHeader")
 
     <div class="main-wrapper">
-       @RenderBody()
+       @RenderSection("_Search",false)
+        
+        @RenderBody()
 
-       @Html.Partial("_BlogFooter")
+        @Html.Partial("_BlogFooter")
     </div>
    @Html.Partial("_BlogScripts")
 </body>

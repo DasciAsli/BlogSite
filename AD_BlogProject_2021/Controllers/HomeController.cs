@@ -3,6 +3,7 @@ using AD_BlogProject_2021.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -41,6 +42,7 @@ namespace AD_BlogProject_2021.Controllers
             ViewBag.TagId = db.Tags.ToList();
             return View(portfolio);
         }
+        
         public ActionResult Blog()
         {
             var blog = db.Blogs.Where(b => b.IsActive == true).OrderByDescending(b => b.BlogId).Take(3).ToList();

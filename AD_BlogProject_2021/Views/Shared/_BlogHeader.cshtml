@@ -21,8 +21,11 @@
                      alt="image" />
 
                 <div class="bio mb-3">
-                    Hi, my name is Anthony Doe. Briefly introduce yourself here. You
-                    can also provide a link to the about page.<br /><a href=@Url.Action("About","Blog1")>Find out more about me</a>
+                    <ul class="text-decoration-none list-unstyled">
+                        <li>Bilgisayar Mühendisi</li>
+                        <li>Yazılım Geliştirici</li>
+                    </ul>
+                    <br /><a href=@Url.Action("About","Blog1")>Hakkımda Daha Fazla Bilgi İçin..</a>
                 </div>
                 <!--//bio-->
                 <ul class="social-list list-inline py-3 mx-auto">
@@ -46,7 +49,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link @(ViewBag.Title=="Index"? "active" : "")" ; href=@Url.Action("Index","Blog1")>
-                        <i class="fas fa-home fa-fw me-2"></i>Blog Home
+                        <i class="fas fa-bookmark fa-fw me-2"></i>Blog Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>

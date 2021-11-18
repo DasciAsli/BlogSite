@@ -1,0 +1,28 @@
+﻿@model List<AD_BlogProject_2021.Models.EntityFramework.Tags>
+
+<section class="cta-section theme-bg-light py-5">
+    <div class="container text-center single-col-max-width">
+        <div class="input-group">
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                   aria-describedby="search-addon" />
+            <button type="button" class="btn btn-outline-primary">Ara</button>
+            <div class="btn-group ">
+                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Etiketler
+                </button>
+                <ul class="dropdown-menu">
+                     @foreach (var item in Model)
+                     {
+                        <li><a class="dropdown-item" href="#">@item.TagName</a></li>
+                     }
+
+                    
+                </ul>
+            </div>
+
+        </div>
+
+        <!--//single-form-max-width-->
+    </div>
+    <!--//container-->
+</section>

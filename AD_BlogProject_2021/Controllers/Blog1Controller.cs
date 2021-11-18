@@ -15,6 +15,7 @@ namespace AD_BlogProject_2021.Controllers
         public ActionResult Index()
         {
             var blog = db.Blogs.Where(b => b.IsActive == true).OrderByDescending(b => b.BlogId).ToList();
+            ViewBag.TagId = db.Tags.Where(t => t.IsActive== true).ToList();
             return View(blog);
         }
         public ActionResult Details(int? id)
@@ -29,6 +30,7 @@ namespace AD_BlogProject_2021.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.TagId = db.Tags.Where(t => t.IsActive == true).ToList();
             return View(blogs);
             
         }
