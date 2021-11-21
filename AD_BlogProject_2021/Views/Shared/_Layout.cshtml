@@ -1,21 +1,46 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+<style>
+
+    html {
+        position: relative;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+    }
+
+    footer {
+        position: absolute;
+        bottom: -100px;        
+        width:100%;
+        
+    }
+    
+</style>
 
 <head>
-   @Html.Partial("_Head")
+    @Html.Partial("_Head")
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
 </head>
 
 <body>
 
-    @Html.Partial("_Header")
+       @Html.Partial("_Header")
+     
+       @RenderBody()
     
-    @RenderBody()
+    
+       @Html.Partial("_Footer")
+    
+   
 
-    @Html.Partial("_Footer")
+       @Html.Partial("_Preloader")
 
-    @Html.Partial("_Preloader")
-
-    @Html.Partial("_Scripts")
+       @Html.Partial("_Scripts")
+       @RenderSection("Scripts", false)
 </body>
 
 </html>

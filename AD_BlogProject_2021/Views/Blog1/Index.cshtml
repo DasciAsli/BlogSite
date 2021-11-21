@@ -30,12 +30,14 @@
                         @if (@item.BlogDetails.Description.Length > 150)
                         {
                             <div class="intro">
-                                @item.BlogDetails.Description.Substring(0, 150) ..
+                                @Html.Raw(@item.BlogDetails.Description.Substring(0, 150))<span>..</span>
+                                
                             </div>
                         }
                         else
                         {
-                            @item.BlogDetails.Description
+                            @Html.Raw(@item.BlogDetails.Description)
+                            
                         }
                         @Html.ActionLink("Okumaya Devam Et", "Details", new { id = item.BlogId }) 
                     </div>

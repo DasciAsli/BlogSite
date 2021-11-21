@@ -37,10 +37,23 @@ namespace AD_BlogProject_2021.Controllers
         }
         public ActionResult Portfolio()
         {
-
-            var portfolio = db.Portfolios.Where(p => p.IsActive == true).ToList();
-            ViewBag.TagId = db.Tags.ToList();
-            return View(portfolio);
+            var model = new PortfolioViewModel();
+            model.Portfolios = db.Portfolios.Where(p => p.IsActive == true).ToList();
+            model.Tags = db.Tags.Where(t => t.IsActive == true).ToList();          
+            return View(model);
+        }
+        public ActionResult TagFilter(int TagId)
+        {
+            var model = db.Portfolios.Where(p => p.IsActive == true).ToList();
+            if (TagId != 0 && model.Any(b=>b.Tags.Any(t=>t.TagId== TagId)))
+            {
+                model = db.Portfolios.Where(p => p.Tags.Any(t => t.TagId == TagId)).ToList();
+            }
+            else
+            {
+                model = db.Portfolios.Where(p => p.IsActive == true).ToList();
+            }
+            return PartialView("_PortfolioFilter",model);
         }
         
         public ActionResult Blog()

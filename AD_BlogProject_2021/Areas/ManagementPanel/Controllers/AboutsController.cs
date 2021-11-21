@@ -46,6 +46,7 @@ namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "AboutId,Title,Description,SkillName,SkillRate")] Abouts abouts)
         {
             if (ModelState.IsValid)
@@ -78,6 +79,7 @@ namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "AboutId,Title,Description,SkillName,SkillRate")] Abouts abouts)
         {
             if (ModelState.IsValid)

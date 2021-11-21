@@ -36,6 +36,7 @@ namespace AD_BlogProject_2021.Controllers
         }
         public ActionResult About()
         {
+
             return View();
         }
     }

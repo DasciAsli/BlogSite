@@ -1,0 +1,15 @@
+﻿@model List<AD_BlogProject_2021.Models.EntityFramework.Portfolios>
+@foreach (var item in Model)
+{
+    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="portfolio-wrap">
+            <img src="@item.ImageUrl" class="img-fluid " style="width:100%" alt="">
+            <div class="portfolio-info">
+                <h4>@item.ProjeName</h4>
+                <p><a href="@item.ProjeUrl">Proje Linki</a></p>
+
+            </div>
+        </div>
+    </div>
+}
+

@@ -11,11 +11,14 @@ namespace AD_BlogProject_2021.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class Abouts
     {
         public int AboutId { get; set; }
         public string Title { get; set; }
+
+        [AllowHtml]
         public string Description { get; set; }
     }
 }
