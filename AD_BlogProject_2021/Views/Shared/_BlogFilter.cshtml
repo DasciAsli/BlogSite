@@ -1,0 +1,37 @@
+﻿@model List<AD_BlogProject_2021.Models.EntityFramework.Blogs>
+
+@foreach (var item in Model)
+{
+    <div class="item mb-5">
+        <div class="row g-3 g-xl-0">
+            <div class="col-2 col-xl-3">
+                <img class="img-fluid post-thumb"
+                     src="@item.ImageURL"
+                     alt="image" />
+            </div>
+            <div class="col">
+                <h3 class="title mb-1">
+                    <a class="text-link" href="@Url.Action("Details","Blog1",new { id=item.BlogId})">@item.SubTitle</a>
+                </h3>
+                <div class="meta mb-1">
+                    <span class="date">@item.RegisterDate</span><span class="comment"><a class="text-link" href="#">8 comments</a></span>
+                </div>
+                @if (@item.BlogDetails.Description.Length > 150)
+                {
+                    <div class="intro">
+                        @Html.Raw(@item.BlogDetails.Description.Substring(0, 150))<span>..</span>
+
+                    </div>
+                }
+                else
+                {
+                    @Html.Raw(@item.BlogDetails.Description)
+
+                }
+                @Html.ActionLink("Okumaya Devam Et", "Details", new { id = item.BlogId })
+            </div>
+            <!--//col-->
+        </div>
+        <!--//row-->
+    </div>
+}

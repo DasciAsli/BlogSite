@@ -202,6 +202,7 @@
       <DependentUpon>MyBlogContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModel\AboutViewModel.cs" />
+    <Compile Include="Models\ViewModel\BlogViewModel.cs" />
     <Compile Include="Models\ViewModel\PortfolioViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -4686,6 +4687,7 @@
     <Content Include="Views\Blog1\About.cshtml" />
     <Content Include="Views\Shared\_Search.cshtml" />
     <Content Include="Views\Shared\_PortfolioFilter.cshtml" />
+    <Content Include="Views\Shared\_BlogFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
