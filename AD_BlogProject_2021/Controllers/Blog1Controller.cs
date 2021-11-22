@@ -40,9 +40,21 @@ namespace AD_BlogProject_2021.Controllers
             model.Blogs = db.Blogs.Where(b => b.BlogId == id).ToList();
             model.Tags = db.Tags.Where(t => t.IsActive == true).ToList();
             return View(model);
+  
+        }
+        public ActionResult BlogComments(int BlogId, string name, string comment)
+        {
+            Comments comments = new Comments();
+            comments.BlogId = BlogId;
+            comments.CommentatorName = name;           
+            comments.Comment = comment;
+            comments.RegisterDate = DateTime.Now;
+            db.Comments.Add(comments);
+            db.SaveChanges();
 
-            
-            
+            var model = db.Comments.Where(u => u.BlogId == BlogId).ToList();
+
+            return PartialView("_CommentList", model);
         }
         public ActionResult About()
         {
