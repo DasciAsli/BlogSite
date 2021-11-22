@@ -34,21 +34,14 @@ namespace AD_BlogProject_2021.Controllers
 
             return PartialView("_BlogFilter", model);
         }
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Blogs blogs = db.Blogs.Find(id);
+            var model = new BlogViewModel();
+            model.Blogs = db.Blogs.Where(b => b.BlogId == id).ToList();
+            model.Tags = db.Tags.Where(t => t.IsActive == true).ToList();
+            return View(model);
 
-            if (blogs == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.TagId = db.Tags.Where(t => t.IsActive == true).ToList();
             
-            return View(blogs);
             
         }
         public ActionResult About()

@@ -1,0 +1,36 @@
+﻿@model List<AD_BlogProject_2021.Models.EntityFramework.Comments>
+
+
+<style>
+    .al {
+    }
+</style>
+<ul class="comment-tree list-unstyled">
+    @foreach (var yorum in Model.Where(u => u.IsReply == 0))
+    {
+
+        <li class="mb-5">
+            <div class="comment-area-box">
+                <img alt="" src="~/Content/images/blog/test1.jpg" class="img-fluid float-left mr-3 mt-2">
+
+                <h5 class="mb-1" id="@yorum.BlogId">@yorum.CommentatorName</h5>
+                
+
+                <div class="comment-meta mt-4 mt-lg-0 mt-md-0 float-lg-right float-md-right">
+                    <a href="#" class="al">
+                        <i class="icofont-reply mr-2 text-muted">
+
+                        </i>Reply |
+                    </a>
+                    <span class="date-comm">@yorum.RegisterDate.ToString("dd MM yyyy") </span>
+                </div>
+
+                <div class="comment-content mt-3">
+                    <p>@yorum.Comment</p>
+                </div>
+            </div>
+        </li>
+
+    }
+
+</ul>
