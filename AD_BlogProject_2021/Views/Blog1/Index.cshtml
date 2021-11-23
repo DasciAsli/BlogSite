@@ -6,13 +6,13 @@
 
 @section _Search
 {
-    @Html.Partial("_Search",Model.Tags)
+    @Html.Partial("_Search", Model.Tags)
 }
 
 <section class="blog-list px-3 py-5 p-md-5 ">
     <div class="container single-col-max-width">
         <div id="BlogFilter">
-            @Html.Partial("_BlogFilter",Model.Blogs)
+            @Html.Partial("_BlogFilter", Model.Blogs)
         </div>
 
         <nav class="blog-nav nav nav-justified my-5">
@@ -28,7 +28,7 @@
 </section>
 
 @section Scripts2{
-    
+
     <script>
 
         function blogGetir(TagId) {
@@ -52,5 +52,36 @@
 
 
     </script>
-  
+
+
+}
+
+@section Scripts3{
+
+    <script>
+
+        
+            $('#araButonu').click(function () {
+
+                var arama = $('#ara').val();
+
+            $.ajax({
+
+            url: '/Blog1/SearchFilter',
+            method: 'GET',
+            async: false,
+            data: { arama },
+            success: function (data) {
+                $('#BlogFilter').html(data);
+                    },
+            error: function (data) {
+                alert("Bloglar Filtrelenemedi")
+            }
+
+
+                })
+            });
+
+    </script>
+
 }

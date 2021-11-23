@@ -16,9 +16,23 @@ namespace AD_BlogProject_2021.Controllers
         public ActionResult Index()
         {
             var model = new BlogViewModel();
-            model.Blogs= db.Blogs.Where(b => b.IsActive == true).OrderByDescending(b => b.BlogId).ToList();
+            model.Blogs = db.Blogs.Where(u => u.IsActive == true).ToList();            
             model.Tags = db.Tags.Where(t => t.IsActive== true).ToList();
             return View(model);
+        }
+        public ActionResult SearchFilter(string arama)
+        {
+            var model = db.Blogs.Where(u => u.IsActive == true).ToList();
+            if (!string.IsNullOrEmpty(arama))
+            {
+                model = db.Blogs.Where(u => u.IsActive == true && ( u.SubTitle.Contains(arama) || u.BlogDetails.Description.Contains(arama))).ToList();
+            }
+            else
+            {
+                model = db.Blogs.Where(u => u.IsActive == true).ToList();
+            }
+
+            return PartialView("_BlogFilter", model);
         }
         public ActionResult TagFilter(int TagId)
         {
