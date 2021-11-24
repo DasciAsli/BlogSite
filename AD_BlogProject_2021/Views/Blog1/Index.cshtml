@@ -1,4 +1,9 @@
 ﻿@model AD_BlogProject_2021.Models.ViewModel.BlogViewModel
+
+@using PagedList
+@using PagedList.Mvc
+
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_BlogLayout.cshtml";
@@ -11,19 +16,37 @@
 
 <section class="blog-list px-3 py-5 p-md-5 ">
     <div class="container single-col-max-width">
+
         <div id="BlogFilter">
             @Html.Partial("_BlogFilter", Model.Blogs)
+
         </div>
 
         <nav class="blog-nav nav nav-justified my-5">
-            <a class="nav-link-prev nav-item nav-link d-none rounded-left"
-               href="#">
-                Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i>
-            </a>
-            <a class="nav-link-next nav-item nav-link rounded" href="#">
-                Next<i class="arrow-next fas fa-long-arrow-alt-right"></i>
-            </a>
+
+            @Html.PagedListPager((IPagedList)ViewBag.PageList, sayfa => Url.Action("Index", new { sayfa }),
+             new PagedListRenderOptions
+             {
+
+                 UlElementClasses = new string[] { "pagination pagination-md pagination-gutter  pagination-warning" },
+                 LiElementClasses = new string[] { "page-item" },
+                 LinkToPreviousPageFormat = "Geri",
+                 LinkToNextPageFormat = "İleri",
+                 ClassToApplyToLastListItemInPager = "page-previus",
+                 ClassToApplyToFirstListItemInPager = "page-next",
+
+                 FunctionToTransformEachPageLink = (li, a) =>
+                 {
+                     a.AddCssClass("page-link");
+                     li.InnerHtml = a.ToString();
+                     return li;
+
+                 }
+
+             })
+
         </nav>
+
     </div>
 </section>
 
@@ -50,9 +73,7 @@
             })
         }
 
-
     </script>
-
 
 }
 
@@ -60,28 +81,31 @@
 
     <script>
 
-        
-            $('#araButonu').click(function () {
 
-                var arama = $('#ara').val();
+        $('#araButonu').click(function () {
+
+            var arama = $('#ara').val();
 
             $.ajax({
 
-            url: '/Blog1/SearchFilter',
-            method: 'GET',
-            async: false,
-            data: { arama },
-            success: function (data) {
-                $('#BlogFilter').html(data);
-                    },
-            error: function (data) {
-                alert("Bloglar Filtrelenemedi")
-            }
+                url: '/Blog1/SearchFilter',
+                method: 'GET',
+                async: false,
+                data: { arama },
+                success: function (data) {
+                    $('#BlogFilter').html(data);
+                },
+                error: function (data) {
+                    alert("Bloglar Filtrelenemedi")
+                }
 
 
-                })
-            });
+            })
+        });
 
     </script>
 
 }
+
+
+

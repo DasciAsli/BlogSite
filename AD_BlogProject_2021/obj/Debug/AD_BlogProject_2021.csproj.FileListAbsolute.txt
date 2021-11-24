@@ -162,3 +162,7 @@ C:\Users\hp\Desktop\Kendi Blog Projemde Kullandığım Araçlar\BlogSite\AD_Blog
 C:\Users\hp\Desktop\Kendi Blog Projemde Kullandığım Araçlar\BlogSite\AD_BlogProject_2021\obj\Debug\AD_BlogProject_2021.csproj.CoreCompileInputs.cache
 C:\Users\hp\Desktop\Kendi Blog Projemde Kullandığım Araçlar\BlogSite\AD_BlogProject_2021\obj\Debug\AD_BlogProject_2021.dll
 C:\Users\hp\Desktop\Kendi Blog Projemde Kullandığım Araçlar\BlogSite\AD_BlogProject_2021\obj\Debug\AD_BlogProject_2021.pdb
+C:\Users\hp\Desktop\Kendi Blog Projemde Kullandığım Araçlar\BlogSite\AD_BlogProject_2021\bin\PagedList.dll
+C:\Users\hp\Desktop\Kendi Blog Projemde Kullandığım Araçlar\BlogSite\AD_BlogProject_2021\bin\PagedList.Mvc.dll
+C:\Users\hp\Desktop\Kendi Blog Projemde Kullandığım Araçlar\BlogSite\AD_BlogProject_2021\bin\PagedList.xml
+C:\Users\hp\Desktop\Kendi Blog Projemde Kullandığım Araçlar\BlogSite\AD_BlogProject_2021\bin\PagedList.Mvc.xml

@@ -60,7 +60,6 @@ namespace AD_BlogProject_2021.Controllers
             var model = db.Portfolios.Where(p => p.IsActive == true).ToList();           
             return PartialView("_PortfolioFilter", model);
         }
-
         public ActionResult Blog()
         {
             var blog = db.Blogs.Where(b => b.IsActive == true).OrderByDescending(b => b.BlogId).Take(3).ToList();

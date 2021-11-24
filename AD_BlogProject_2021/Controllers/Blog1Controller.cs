@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace AD_BlogProject_2021.Controllers
 {
@@ -13,10 +15,12 @@ namespace AD_BlogProject_2021.Controllers
     {
         MyBlogContext db = new MyBlogContext();
         // GET: Blog1
-        public ActionResult Index()
+        public ActionResult Index(int sayfa = 1)
         {
-            var model = new BlogViewModel();
-            model.Blogs = db.Blogs.Where(u => u.IsActive == true).ToList();            
+            var model = new BlogViewModel();           
+            var blogs= db.Blogs.Where(u => u.IsActive == true).OrderBy(u => u.BlogId).ToPagedList(sayfa, 3);
+            ViewBag.PageList= db.Blogs.Where(u => u.IsActive == true).OrderBy(u => u.BlogId).ToPagedList(sayfa, 3);
+            model.Blogs = blogs.ToList();           
             model.Tags = db.Tags.Where(t => t.IsActive== true).ToList();
             return View(model);
         }
@@ -48,6 +52,7 @@ namespace AD_BlogProject_2021.Controllers
 
             return PartialView("_BlogFilter", model);
         }
+       
         public ActionResult Details(int id)
         {
             var model = new BlogViewModel();

@@ -1,4 +1,5 @@
 ﻿@model AD_BlogProject_2021.Models.ViewModel.BlogViewModel
+
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_BlogLayout.cshtml";
@@ -13,7 +14,10 @@
 <article class="blog-post px-3 py-5 p-md-5">
     <section class="blog-list px-3 py-5 p-md-5 ">
         <div class="container single-col-max-width">
+
+
             <div id="BlogFilter">
+                <!--BlogDetayları-->
                 @foreach (var item in Model.Blogs)
                 {
                     <header class="blog-post-header">
@@ -36,21 +40,15 @@
                             @Html.Raw(@item.BlogDetails.Description)
 
                         </p>
-
-
-
-                        <nav class="blog-nav nav nav-justified my-5">
-                            @Html.ActionLink("Previous", "Details", new { id = item.BlogId }, new { @class = "nav-link-prev nav-item nav-link rounded-left" })
-                            @Html.ActionLink("Next", "Details", new { id = item.BlogId }, new { @class = "nav-link-next nav-item nav-link rounded-right" })
-                        </nav>
-
+                        
 
                     </div>
                 }
-                <div class="col-lg-12 mb-5">
-                    <!--yORUMLAR-->
-                    <div class="comment-area card border-0 p-5">
 
+
+                <!--Yorumlar-->
+                <div class="col-lg-12 mb-5">
+                    <div class="comment-area card border-0 p-5">
                         <div id="CommentList">
                             @foreach (var comment in Model.Blogs)
                             {
@@ -60,12 +58,18 @@
                         </div>
                     </div>
                 </div>
+
+
+                <!--Hangi Blog'a ait yorumların olduğunu bulabilmek için id'leri gizli bir şekilde tutuyoruz-->
                 @foreach (var blog in Model.Blogs)
                 {
                     @Html.Hidden("BlogId", blog.BlogId)
                 }
+
+
+
+                <!--Yorum Yaz-->
                 <div class="col-lg-12 shadow-lg">
-                    <!--yORUM gÖNDER-->
                     <form class="contact-form bg-white rounded p-5" id="comment-form">
 
                         <span id="yorumSahibi"></span><span></span>
@@ -86,13 +90,14 @@
                 </div>
             </div>
 
+
         </div>
-    </section>
-        <!--//container-->
+    </section>      
 </article>
 
-@section Scripts4{
+<!--Search ve Tag Filtreleme için kullandığım Ajax kodları-->
 
+@section Scripts4{
 
     <script>
         $('#submit_contact').click(function () {
@@ -120,7 +125,10 @@
 
 
     </script>
+
 }
+
+
 @section Scripts2{
 
     <script>
@@ -147,8 +155,8 @@
 
     </script>
 
-
 }
+
 
 @section Scripts3{
 
