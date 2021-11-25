@@ -65,9 +65,25 @@ namespace AD_BlogProject_2021.Controllers
             var blog = db.Blogs.Where(b => b.IsActive == true).OrderByDescending(b => b.BlogId).Take(3).ToList();
             return View(blog);
         }
+
+        [HttpGet] 
         public ActionResult Contact()
         {
             return View();
+        }      
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Contact([Bind(Include = "ContactId,ContactName,ContactEmail,ContactBaslik,ContactMessage,IsActive,RegisterDate")] Contacts contacts)
+        {
+            if (ModelState.IsValid)
+            {
+                contacts.IsActive = true;
+                contacts.RegisterDate = DateTime.Now;
+                db.Contacts.Add(contacts);
+                db.SaveChanges();               
+            }
+            return View(contacts);
         }
     }
 }

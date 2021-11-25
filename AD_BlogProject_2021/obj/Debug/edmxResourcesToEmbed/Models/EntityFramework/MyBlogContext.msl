@@ -161,5 +161,18 @@
         <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="AD_BlogProje_2021_DbModel.Contacts">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ContactMessage" ColumnName="ContactMessage" />
+          <ScalarProperty Name="ContactBaslik" ColumnName="ContactBaslik" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

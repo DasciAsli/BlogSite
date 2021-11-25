@@ -1,0 +1,66 @@
+﻿@model AD_BlogProject_2021.Models.EntityFramework.Contacts
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contacts</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactMessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactMessage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegisterDate)
+        </dd>
+
+    </dl>
+</div>
+<p>    
+    @Html.ActionLink("Back to List", "Index",null,new { @class="btn btn-secondary" })
+</p>

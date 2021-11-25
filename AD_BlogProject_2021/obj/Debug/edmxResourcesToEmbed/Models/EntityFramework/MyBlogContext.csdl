@@ -176,6 +176,7 @@
       <End Role="Portfolios" EntitySet="Portfolios" />
       <End Role="Tags" EntitySet="Tags" />
     </AssociationSet>
+    <EntitySet Name="Contacts" EntityType="AD_BlogProje_2021_DbModel.Contacts" />
   </EntityContainer>
   <EntityType Name="Abouts">
     <Key>
@@ -238,4 +239,16 @@
     <End Type="AD_BlogProje_2021_DbModel.Portfolios" Role="Portfolios" Multiplicity="*" />
     <End Type="AD_BlogProje_2021_DbModel.Tags" Role="Tags" Multiplicity="*" />
   </Association>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContactName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactBaslik" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ContactMessage" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
 </Schema>

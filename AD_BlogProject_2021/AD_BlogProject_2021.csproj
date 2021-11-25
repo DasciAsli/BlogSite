@@ -138,6 +138,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\AboutsController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\BlogsController.cs" />
+    <Compile Include="Areas\ManagementPanel\Controllers\ContactsController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\HomesController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\PortfoliosController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\ResumesController.cs" />
@@ -163,6 +164,9 @@
       <DependentUpon>MyBlogContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Comments.cs">
+      <DependentUpon>MyBlogContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\Contacts.cs">
       <DependentUpon>MyBlogContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Homes.cs">
@@ -4644,6 +4648,9 @@
     <Content Include="Areas\ManagementPanel\Views\Portfolios\Details.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Portfolios\Edit.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Portfolios\Index.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Contacts\Delete.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Contacts\Details.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Contacts\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />

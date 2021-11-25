@@ -38,5 +38,6 @@ namespace AD_BlogProject_2021.Models.EntityFramework
         public virtual DbSet<Resumes> Resumes { get; set; }
         public virtual DbSet<Portfolios> Portfolios { get; set; }
         public virtual DbSet<Tags> Tags { get; set; }
+        public virtual DbSet<Contacts> Contacts { get; set; }
     }
 }

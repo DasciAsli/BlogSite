@@ -12,10 +12,14 @@ namespace AD_BlogProject_2021.Models.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class Abouts
+    public partial class Contacts
     {
-        public int AboutId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public int ContactId { get; set; }
+        public string ContactName { get; set; }
+        public string ContactEmail { get; set; }
+        public string ContactBaslik { get; set; }
+        public string ContactMessage { get; set; }
+        public bool IsActive { get; set; }
+        public System.DateTime RegisterDate { get; set; }
     }
 }

@@ -45,6 +45,18 @@
     <Property Name="RegisterDate" Type="smalldatetime" Nullable="false" />
     <Property Name="BlogId" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactBaslik" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ContactMessage" Type="varchar(max)" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="RegisterDate" Type="smalldatetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Homes">
     <Key>
       <PropertyRef Name="HomeId" />
@@ -249,6 +261,7 @@
     <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BlogToTag" EntityType="Self.BlogToTag" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Homes" EntityType="Self.Homes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Portfolios" EntityType="Self.Portfolios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PortfolioToTag" EntityType="Self.PortfolioToTag" Schema="dbo" store:Type="Tables" />

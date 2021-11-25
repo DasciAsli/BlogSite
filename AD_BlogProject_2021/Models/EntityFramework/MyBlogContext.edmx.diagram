@@ -24,6 +24,7 @@
         <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Tags" Width="1.5" PointX="3" PointY="7.875" />
         <AssociationConnector Association="AD_BlogProje_2021_DbModel.BlogToTag" />
         <AssociationConnector Association="AD_BlogProje_2021_DbModel.PortfolioToTag" />
+        <EntityTypeShape EntityType="AD_BlogProje_2021_DbModel.Contacts" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
