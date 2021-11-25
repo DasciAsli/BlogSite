@@ -19,33 +19,34 @@
 
         <div id="BlogFilter">
             @Html.Partial("_BlogFilter", Model.Blogs)
+            <nav class="blog-nav nav nav-justified my-5">
+
+                @Html.PagedListPager((IPagedList)ViewBag.PageList, sayfa => Url.Action("Index", new { sayfa }),
+                 new PagedListRenderOptions
+                 {
+
+                     UlElementClasses = new string[] { "pagination pagination-md pagination-gutter  pagination-warning" },
+                     LiElementClasses = new string[] { "page-item" },
+                     LinkToPreviousPageFormat = "Geri",
+                     LinkToNextPageFormat = "İleri",
+                     ClassToApplyToLastListItemInPager = "page-previus",
+                     ClassToApplyToFirstListItemInPager = "page-next",
+
+                     FunctionToTransformEachPageLink = (li, a) =>
+                     {
+                         a.AddCssClass("page-link");
+                         li.InnerHtml = a.ToString();
+                         return li;
+
+                     }
+
+                 })
+
+            </nav>
 
         </div>
 
-        <nav class="blog-nav nav nav-justified my-5">
-
-            @Html.PagedListPager((IPagedList)ViewBag.PageList, sayfa => Url.Action("Index", new { sayfa }),
-             new PagedListRenderOptions
-             {
-
-                 UlElementClasses = new string[] { "pagination pagination-md pagination-gutter  pagination-warning" },
-                 LiElementClasses = new string[] { "page-item" },
-                 LinkToPreviousPageFormat = "Geri",
-                 LinkToNextPageFormat = "İleri",
-                 ClassToApplyToLastListItemInPager = "page-previus",
-                 ClassToApplyToFirstListItemInPager = "page-next",
-
-                 FunctionToTransformEachPageLink = (li, a) =>
-                 {
-                     a.AddCssClass("page-link");
-                     li.InnerHtml = a.ToString();
-                     return li;
-
-                 }
-
-             })
-
-        </nav>
+      
 
     </div>
 </section>

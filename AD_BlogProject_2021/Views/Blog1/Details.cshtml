@@ -23,7 +23,13 @@
                     <header class="blog-post-header">
                         <h2 class="title mb-2">@item.Title</h2>
                         <div class="meta mb-3">
-                            <span class="date">@item.RegisterDate</span><span class="time">5 min read</span><span class="comment"><a class="text-link" href="#">4 comments</a></span>
+                            <span class="date">@item.RegisterDate </span>
+                            @foreach (var tags in item.Tags)
+                            {
+                                <span class="Tags">@tags.TagName,</span>
+                            }
+
+                            <span class="comment"><a class="text-link" href="#">@item.Comments.Count() Comment</a></span>
                         </div>
                     </header>
 

@@ -41,13 +41,14 @@ namespace AD_BlogProject_2021.Controllers
         public ActionResult TagFilter(int TagId)
         {
             var model = db.Blogs.Where(u => u.IsActive == true).ToList();
-            if (TagId != 0 && model.Any(b => b.Tags.Any(t => t.TagId == TagId)))
-            {
-                model = db.Blogs.Where(b => b.Tags.Any(t => t.TagId == TagId)).ToList();
-            }
+            if (TagId != 0 && model.Any(b => b.Tags.Any(t => t.TagId == TagId)) && db.Blogs.Where(b => b.Tags.Any(t => t.TagId == TagId)).Count() > 0)
+            {               
+                    model = db.Blogs.Where(b => b.Tags.Any(t => t.TagId == TagId)).ToList();
+                                             
+            }           
             else
             {
-                model = db.Blogs.Where(u => u.IsActive == true).ToList();
+                model = null;
             }
 
             return PartialView("_BlogFilter", model);

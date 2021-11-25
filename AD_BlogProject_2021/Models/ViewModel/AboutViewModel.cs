@@ -10,6 +10,6 @@ namespace AD_BlogProject_2021.Models.ViewModel
     {
         public List<Abouts> Abouts { get; set; }
         public List<Skills> Skills { get; set; }
-        public List<Tags> Tags { get; set; }
+        
     }
 }

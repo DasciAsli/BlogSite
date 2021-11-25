@@ -30,7 +30,7 @@
         <td>
             @if (item.Description.Length > 50)
             {
-                <p>@item.Description.Substring(0,50) ...</p>
+                @Html.Raw(@item.Description.Substring(0,50))<span>..</span>
             }
             else
             { 

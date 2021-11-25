@@ -112,6 +112,15 @@ namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Tags tags = db.Tags.Find(id);
+            foreach (var item in db.Blogs.ToList())
+            {
+                item.Tags.Remove(tags);
+            }
+            foreach (var item in db.Portfolios.ToList())
+            {
+                item.Tags.Remove(tags);
+            }
+                     
             db.Tags.Remove(tags);
             db.SaveChanges();
             return RedirectToAction("Index");
