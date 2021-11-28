@@ -46,7 +46,7 @@
                             @Html.Raw(@item.BlogDetails.Description)
 
                         </p>
-                        
+
 
                     </div>
                 }
@@ -80,6 +80,12 @@
 
                         <span id="yorumSahibi"></span><span></span>
                         <h4 class="mb-4">Yorum Yaz:</h4>
+                        <span id="yorumId" hidden></span>
+                        <span id="kime" hidden>Yorum Yapılan :</span>
+                        <span id="yapılacakKisi" hidden></span>
+                        <span id="vazgec" hidden><i class="fas fa-window-close"></i></span>
+
+                        
                         <div class="row">
                             <div class="col-md-12 mb-1">
                                 <div class="form-group">
@@ -98,10 +104,39 @@
 
 
         </div>
-    </section>      
+    </section>
 </article>
 
 <!--Search ve Tag Filtreleme için kullandığım Ajax kodları-->
+
+
+@section Scripts6{
+
+    <script>
+        $('.al').click(function () {
+
+            var getir = $(this).parent().parent().children('h5').attr('id');
+            var al = $(this).parent().parent().children('h5').text();
+
+            $("#yorumId").html(getir); //idsi yorumId olana getiri yazdır
+            $("#kime").removeAttr('hidden'); //
+            $("#yapılacakKisi").removeAttr('hidden'); //
+            $("#yapılacakKisi").html(al);
+            $("#vazgec").removeAttr('hidden');
+        });
+        $("#vazgec").click(function () {
+            $("#yorumId").html();
+            $("#kime").attr('hidden', 'hidden');
+            $("#yapılacakKisi").attr('hidden', 'hidden');
+            $("#yapılacakKisi").html();
+            $("#vazgec").attr('hidden', 'hidden');
+
+        });
+
+    </script>
+
+}
+
 
 @section Scripts4{
 
@@ -111,13 +146,14 @@
             var BlogId = $('#BlogId').val();
             var name = $('#Guest-Name').val();
             var comment = $('#Guest-Comment').val();
+            var IsReply = $("#yorumId").text();
 
             $.ajax({
 
                 url: '/Blog1/BlogComments',
                 method: 'POST',
                 async: false,
-                data: { BlogId, name, comment },
+                data: { BlogId, name, comment, IsReply },
                 success: function (data) {
                     $('#CommentList').html(data);
                 },

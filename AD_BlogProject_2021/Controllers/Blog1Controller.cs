@@ -62,10 +62,14 @@ namespace AD_BlogProject_2021.Controllers
             return View(model);
   
         }
-        public ActionResult BlogComments(int BlogId, string name, string comment)
+        public ActionResult BlogComments(int BlogId, string name, string comment,int? IsReply)
         {
             Comments comments = new Comments();
             comments.BlogId = BlogId;
+            if (IsReply != null)
+            {
+                comments.IsReply = IsReply.Value;
+            }
             comments.CommentatorName = name;           
             comments.Comment = comment;
             comments.RegisterDate = DateTime.Now;
