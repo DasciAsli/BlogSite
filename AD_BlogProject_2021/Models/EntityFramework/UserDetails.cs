@@ -15,8 +15,8 @@ namespace AD_BlogProject_2021.Models.EntityFramework
     public partial class UserDetails
     {
         public int UserId { get; set; }
-        public System.DateTime BirthDay { get; set; }
-        public byte Age { get; set; }
+        public Nullable<System.DateTime> BirthDay { get; set; }
+        public Nullable<byte> Age { get; set; }
         public string Website { get; set; }
         public string City { get; set; }
     

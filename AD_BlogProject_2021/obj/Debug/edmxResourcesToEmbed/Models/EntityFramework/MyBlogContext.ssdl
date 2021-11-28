@@ -142,10 +142,10 @@
       <PropertyRef Name="UserId" />
     </Key>
     <Property Name="UserId" Type="int" Nullable="false" />
-    <Property Name="BirthDay" Type="date" Nullable="false" />
-    <Property Name="Age" Type="tinyint" Nullable="false" />
-    <Property Name="Website" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="City" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="BirthDay" Type="date" />
+    <Property Name="Age" Type="tinyint" />
+    <Property Name="Website" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
