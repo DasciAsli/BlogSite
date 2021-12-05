@@ -11,6 +11,7 @@ using FiveSessionWebMvcApp.Areas.ManagementPanel.Helpers;
 
 namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
 {
+    [Auth]
     public class BlogsController : Controller
     {
         private MyBlogContext db = new MyBlogContext();

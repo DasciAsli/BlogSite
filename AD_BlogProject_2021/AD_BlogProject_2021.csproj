@@ -137,6 +137,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\AboutsController.cs" />
+    <Compile Include="Areas\ManagementPanel\Controllers\AccountController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\BlogsController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\ContactsController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\HomesController.cs" />
@@ -149,7 +150,6 @@
     <Compile Include="Areas\ManagementPanel\Controllers\UsersController.cs" />
     <Compile Include="Areas\ManagementPanel\Helpers\ImageUpload.cs" />
     <Compile Include="Areas\ManagementPanel\ManagementPanelAreaRegistration.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Blog1Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -4652,6 +4652,8 @@
     <Content Include="Areas\ManagementPanel\Views\Contacts\Delete.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Contacts\Details.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Contacts\Index.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Account\Create.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Account\Login.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -4702,8 +4704,6 @@
     <Content Include="Views\Shared\_PortfolioFilter.cshtml" />
     <Content Include="Views\Shared\_BlogFilter.cshtml" />
     <Content Include="Views\Shared\_CommentList.cshtml" />
-    <Content Include="Views\Account\Create.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

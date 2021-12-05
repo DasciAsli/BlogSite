@@ -27,11 +27,11 @@
             @if (Session["KullanıcıAdı"] != null)
             {
                 <span class="bg-transparent text-secondary px-3 ">Hosgeldin @Session["KullanıcıAdı"]</span>
-                <a href="@Url.Action("Logout","Account")" class="btn btn-lg btn-secondary p-2 py-3 rounded-pill text-white">Çıkış Yap</a>
+                <a href="@Url.Action("Logout","Account",new { area="ManagementPanel" })" class="btn btn-lg btn-secondary p-2 py-3 rounded-pill text-white">Çıkış Yap</a>
             }
             else
             {
-                <a href="@Url.Action("Login","Account")" class="btn btn-lg btn-secondary p-2 py-3 rounded-pill text-white">Giriş Yap</a>
+                <a href="@Url.Action("Login","Account",new { area="ManagementPanel" })" class="btn btn-lg btn-secondary p-2 py-3 rounded-pill text-white">Giriş Yap</a>
             }
 
 

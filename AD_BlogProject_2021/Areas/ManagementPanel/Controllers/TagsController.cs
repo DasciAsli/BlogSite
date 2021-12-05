@@ -10,6 +10,7 @@ using AD_BlogProject_2021.Models.EntityFramework;
 
 namespace AD_BlogProject_2021.Areas.ManagementPanel.Controllers
 {
+    [Auth]
     public class TagsController : Controller
     {
         private MyBlogContext db = new MyBlogContext();
